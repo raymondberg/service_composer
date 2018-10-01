@@ -1,0 +1,36 @@
+sandwich:
+  kind: root
+  depends_on:
+    - sandwich_assembly
+    - health_check
+
+sandwich_assembly:
+  kind: service
+  depends_on:
+    - bread
+    - peanut_butter
+    - knife
+    - cook
+
+health_check:
+  kind: service
+  depends_on:
+    - cook
+
+bread:
+  kind: system
+  depends_on:
+    - oven
+    - oil
+    - flour
+
+peanut_butter:
+  kind: system
+  depends_on:
+    - oil
+    - peanuts
+
+
+__undocumented:
+  - cook
+  - knife

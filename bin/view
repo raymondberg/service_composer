@@ -1,0 +1,1 @@
+FLASK_ENV=development FLASK_APP=service_composer.web flask run -p 3456

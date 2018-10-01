@@ -1,0 +1,6 @@
+python3 -c '
+from pprint import pprint
+from service_composer.hierarchy import build_hierarchies
+h = build_hierarchies()
+print("Hierarchy Loaded")
+pprint(h)'

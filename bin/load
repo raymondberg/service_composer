@@ -1,0 +1,4 @@
+python3 -c '
+from service_composer.loader import load_definitions;
+d = load_definitions("definitions");
+print("Loaded {} definitions".format(len(d)))'

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% import 'ui.html' as ui %}
+
+
+{% block content %}
+  <div class="row">
+   <div class="col-md-3 col-xs-12" style="border-right: 1px solid brown;overflow:scroll">
+    {% for definition in definitions %}
+      <div>
+        <a onClick="expand('{{ definition }}')" style='cursor:pointer'>{{ definition }}</a>
+      </div>
+    {% endfor %}
+    </div>
+
+    {% for name, definition in hierarchies.items() %}
+      <div class="col-md-9 col-xs-12">
+        {{ ui.definition(definition) }}
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

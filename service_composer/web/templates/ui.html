@@ -1,0 +1,19 @@
+{%- macro definition(object) -%}
+  {% if object is mapping %}
+    <details class="{{ object["name"] }}" style="border-left: 1px solid black; padding-left: 1em">
+    <summary>{{ object["name"].replace("_", " ") }}</summary>
+    <div style="margin-left: 2em">
+      <div>
+        <a href="." target="">Defined in: {{ object["definition_file"] }}</a>
+      </div>
+
+      {% if object["depends_on"] %}
+        <div>Depends on</div>
+        {% for dependency_name, dependency_data in object["depends_on"].items() %}
+          {{ definition(dependency_data) }}
+        {% endfor %}
+      {% endif %}
+    </div>
+    </details>
+  {% endif %}
+{%- endmacro %}
